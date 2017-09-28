@@ -8,6 +8,7 @@ const http         = require('http'),
 var request = require('request');
 
 
+
 // default to a 'localhost' configuration:
 var connection_string = '127.0.0.1:27017/webcup2017';
 // if OPENSHIFT env variables are present, use the available connection info:
