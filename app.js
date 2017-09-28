@@ -81,6 +81,7 @@ app.get('/webhook', function(req, res) {
     } else {
         console.error("Failed validation. Make sure the validation tokens match.");
         res.sendStatus(403);
+
     }
 });
 
