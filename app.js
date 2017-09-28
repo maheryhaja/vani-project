@@ -63,7 +63,7 @@ io.on('connection',function(socket) {
 
 
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
-app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0");
 
 
 app.get("/bonjour",  function(req, res){
@@ -182,6 +182,6 @@ function callSendAPI(messageData) {
 
 
 
-server.listen(env.NODE_PORT || 8080, env.NODE_IP || '127.0.0.1', function () {
+server.listen(env.NODE_PORT || 8080, env.NODE_IP || '0.0.0.0', function () {
   console.log(`Application worker ${process.pid} started...`);
 });
