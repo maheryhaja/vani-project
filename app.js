@@ -33,7 +33,7 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var server = require("http").Server(app);
-var io = require("socket.io")(server);
+var io = require("socket.io");
 
 
 
@@ -61,10 +61,6 @@ io.on('connection',function(socket) {
 });
 
 
-
-
-app.set('port', process.env.PORT || process.env.port || process.env.OPENSHIFT_NODEJS_PORT || 8080);
-app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0");
 
 
 app.get("/bonjour",  function(req, res){
