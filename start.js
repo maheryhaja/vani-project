@@ -18,12 +18,12 @@ cluster.on('disconnect', function(worker) {
 });
 
 if (cluster.isMaster) {
-  const workerCount = process.env.NODE_CLUSTER_WORKERS || 1;
+  const workerCount = process.env.NODE_CLUSTER_WORKERS || 4;
   console.log(`Starting ${workerCount} workers...`);
   for (let i = 0; i < 1; i++) {
     cluster.fork();
   }
-  /*if (production) {
+  if (production) {
     stopSignals.forEach(function (signal) {
       process.on(signal, function () {
         console.log(`Got ${signal}, stopping workers...`);
@@ -35,6 +35,8 @@ if (cluster.isMaster) {
       });
     });
   }
-} else {*/
-  require('./app.js');
+} else {
+  
 }
+require('./app.js');
+console.log("starting application vani-project");
