@@ -23,7 +23,7 @@ if (cluster.isMaster) {
   for (let i = 0; i < 1; i++) {
     cluster.fork();
   }
-  if (production) {
+  /*if (production) {
     stopSignals.forEach(function (signal) {
       process.on(signal, function () {
         console.log(`Got ${signal}, stopping workers...`);
@@ -35,6 +35,6 @@ if (cluster.isMaster) {
       });
     });
   }
-} else {
+} else {*/
   require('./app.js');
 }
