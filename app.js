@@ -62,7 +62,7 @@ io.on('connection',function(socket) {
 
 
 
-app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
+app.set('port', process.env.PORT || process.env.port || process.env.OPENSHIFT_NODEJS_PORT || 8080);
 app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0");
 
 
