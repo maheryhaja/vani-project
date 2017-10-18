@@ -55,6 +55,7 @@ io.on('connection',function(socket) {
    console.log("nouvelle connexion");
 
     socket.on("reponse", function(data){
+        log = "received data";
        sendTextMessage(senderID, data);
     });
 
@@ -117,7 +118,7 @@ app.post('/webhook', function (req, res) {
 function receivedMessage(event) {
     // Putting a stub for now, we'll expand it in the following steps
 
-
+    log += "Sender ID "+senderID+" ";
     senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var timeOfMessage = event.timestamp;
@@ -156,7 +157,7 @@ function callSendAPI(messageData) {
 
     }, function (error, response, body) {
 
-        log+="callback ";
+        log ="callback ";
         if (!error && response.statusCode == 200) {
             var recipientId = body.recipient_id;
             var messageId = body.message_id;
@@ -165,7 +166,7 @@ function callSendAPI(messageData) {
                 messageId, recipientId);
         } else {
             console.error("Unable to send message.");
-            log+="impossible ";
+            log  =   "impossible to send";
             console.error(response);
             console.error(error);
         }
